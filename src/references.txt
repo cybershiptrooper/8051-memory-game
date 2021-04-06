@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/10315793/does-c-have-classes
+https://www.geeksforgeeks.org/bool-in-c/
+https://www.keil.com/support/man/docs/c51/c51_rand.htm
+https://stackoverflow.com/questions/10320025/c-private-variables-get-and-set-methods
