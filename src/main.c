@@ -71,14 +71,17 @@ void main(void){
 			writeNumToLCD(i);
 			msdelay(1000);
 		}
+		//get ready
+		lcd_init();
+		lcd_write_string("Get Ready");
+		msdelay(1000);
 
 		//get stuff
-		lcd_init();
 		for (i = 0; i < 10; ++i){
 			unsigned char ch, ascii;
+			lcd_init();
 			writeWordToLCD(i);
 			ch = receive_char();
-			// lcd_write_char(ch);
 			ascii = numbers[i] + 48;
 			if(ascii == ch) score = score + 1;
 		}

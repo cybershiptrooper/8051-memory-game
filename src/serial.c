@@ -54,19 +54,20 @@ void uart_init(void)
 unsigned char receive_char(void)
 {
 	unsigned char ch = 0;
-	msdelay(3000);
-	// while(!rx_complete);
-	if (rx_complete)
-	{	
-		rx_complete = 0;
-		ch = SBUF;					//Read data from SBUF
-		// lcd_cmd(0xC0);
-		// lcd_write_string("received: ");
+	int time = 3000;
+	while(time>0){
+		if (rx_complete){	
+			rx_complete = 0;
+			ch = SBUF;					//Read data from SBUF
+			lcd_cmd(0xC0);
+			lcd_write_string("received: ");
+			lcd_write_char(ch);
+		}
+		time = time - 100;
+		msdelay(100);
 	}
-	// else{
-	// 	lcd_cmd(0xC0);
-	// 	lcd_write_string("NOT received: ");
-	// }
+	if(time>0) msdelay(time);
+	
 	return ch;						//Return read character
 
 }
